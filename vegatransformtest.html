@@ -1,0 +1,54 @@
+<!doctype html>
+‹<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+</head>
+
+<body>
+    <div id='vis' style='width: 400px; height: 300px;'></div>
+    <script>
+
+
+        function receiveMessage(event) {
+          chartio_data = JSON.parse(event.data)
+          my_data = chartio_data.data
+
+          var yourVlSpec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+          "description": "A simple bar chart with embedded data that uses a filter and calculate.",
+          "data": {
+            "values": [
+              {"a": "A", "b": 28},
+              {"a": "B", "b": 91},
+              {"a": "C", "b": 19}
+                ]
+            },
+            "transform": [
+            {"calculate": "100*datum.b", "as": "b"}
+            ],
+            "mark": {"type": "bar", "cornerRadiusEnd": 4},
+            "encoding": {
+              "x": {"field": "a", "type": "ordinal"},
+              "y": {"field": "b", "type": "quantitative"}
+            }
+          };
+          vegaEmbed('#vis', yourVlSpec)
+          .then((res) => res.view
+          .renderer('svg')
+          .insert("my_data",  my_data)
+          .run()
+          );;
+        }
+
+        window.addEventListener('message', receiveMessage);
+        //console.log(message)
+
+
+
+
+    </script>
+</body>
+</html>
