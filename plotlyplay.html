@@ -17,14 +17,17 @@
       x_key = {x: x_value}
       y_key = {y: y_value}
 
-
+      var dataset = {x_key, y_key};
+      var layout = {title: 'My Line Chart' };
 
      newData = document.getElementById('tester');
 
-  	  Plotly.newPlot(newData, [x_value, y_value], {
+     Plotly.newPlot(newData, dataset, layout);
+
+  	 /* Plotly.newPlot(newData, [x_value, y_value], {
     margin: { t: 0 } }
-      );
-      console.log( Plotly.BUILD );
+  );*/
+    /*  console.log( Plotly.BUILD );*/
     };
     window.addEventListener('message', receiveMessage);
 
