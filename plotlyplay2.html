@@ -20,7 +20,8 @@
 
      newData = document.getElementById('tester');
 
-  	  Plotly.plot(newData, txt);
+  	  Plotly.plot(newData, txt, {
+	margin: { t: 0 } } );
       console.log( Plotly.BUILD );
     };
     window.addEventListener('message', receiveMessage);
