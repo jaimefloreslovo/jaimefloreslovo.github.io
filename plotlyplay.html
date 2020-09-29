@@ -2,9 +2,7 @@
 ‹<html>
 
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
@@ -16,14 +14,12 @@
       my_data = chartio_data.data
 
 
-     document.getElementById('tester').innerHTML = my_data;
+     newData = document.getElementById('tester');
 
-  	  /*Plotly.newPlot( TESTER, my_data,
-        {margin: { t: 0 } } );
-      console.log( Plotly.BUILD );*/
+  	  Plotly.plot(newData, my_data);
+      console.log( Plotly.BUILD );
     };
-      window.addEventListener('message', receiveMessage);
-      console.log(message);
+    window.addEventListener('message', receiveMessage);
 
   </script>
 </body>
