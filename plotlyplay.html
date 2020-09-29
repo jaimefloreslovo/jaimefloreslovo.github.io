@@ -12,8 +12,8 @@
     function receiveMessage(event) {
       chartio_data = JSON.parse(event.data)
       my_data = chartio_data.data
-      x_value = chartio_data.map(a => a.x)
-      y_value = chartio_data.map(a => a.y)
+      x_value = my_data.map(a => a.x)
+      y_value = my_data.map(a => a.y)
 
 
      newData = document.getElementById('tester');
