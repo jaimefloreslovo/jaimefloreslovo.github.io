@@ -1,0 +1,30 @@
+<!doctype html>
+‹<html>
+
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <div id="tester" style="width:600px;height:250px;"></div>
+
+    <script>
+    function receiveMessage(event) {
+      chartio_data = JSON.parse(event.data)
+      my_data = chartio_data.data
+      var x, txt = "";
+      for (x in my_data) {
+        txt += my_data[x] + " ";
+    };
+
+
+     newData = document.getElementById('tester');
+
+  	  Plotly.plot(newData, txt);
+      console.log( Plotly.BUILD );
+    };
+    window.addEventListener('message', receiveMessage);
+
+  </script>
+</body>
+</html>
