@@ -10,11 +10,14 @@
 
     <script>
     function receiveMessage(event) {
-      const event_data = JSON.parse(event.data)
-      const chartio_data = event_data.data
-      const dataset = chartio_data.map(a => a.cases)
+      let event_data = JSON.parse(event.data)
+      let chartio_data = event_data.data
+      let dataset = chartio_data.map(a => a.cases)
+
+      console.log(event_date)
+      console.log(chartio_date)
       console.log(dataset)
-      document.write(dataset);
+
     };
     window.addEventListener('message', receiveMessage);
 
