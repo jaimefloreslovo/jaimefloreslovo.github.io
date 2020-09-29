@@ -10,19 +10,8 @@
 
     <script>
     function receiveMessage(event) {
-      chartio_data = JSON.parse(event.data)
-      my_data = chartio_data
-      var x, txt = "";
-      for (x in my_data) {
-        txt += my_data[x] + " ";
-    };
-
-
-     newData = document.getElementById('tester');
-
-  	  Plotly.plot(newData, txt, {
-	       margin: { t: 0 } } );
-      console.log( Plotly.BUILD );
+      let my_data = JSON.parse(event.data)
+      console.log(my_data)
     };
     window.addEventListener('message', receiveMessage);
 
