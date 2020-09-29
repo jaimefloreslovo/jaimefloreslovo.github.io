@@ -12,15 +12,15 @@
     function receiveMessage(event) {
       chartio_data = JSON.parse(event.data)
       my_data = chartio_data.data
-      };
 
-     TESTER = document.getElementById('tester');
 
-  	  Plotly.newPlot( TESTER, my_data,
+     document.getElementById('tester').innerHTML = my_data;
+
+  	  /*Plotly.newPlot( TESTER, my_data,
         {margin: { t: 0 } } );
-      console.log( Plotly.BUILD );
+      console.log( Plotly.BUILD );*/
       window.addEventListener('message', receiveMessage);
-
+};
   </script>
 </body>
 </html>
