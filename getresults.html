@@ -14,9 +14,14 @@
       let chartio_data = event_data.data
       let dataset = chartio_data.map(a => a.cases)
 
+      var fk = dataset.keys();
+
+      for (x of fk) {
+        document.getElementById("tester").innerHTML += x + "<br>";
+
       /*console.log(event_date)
-      console.log(chartio_date)*/
-      console.log(dataset)
+      console.log(chartio_date)
+      console.log(dataset)*/
 
     };
     window.addEventListener('message', receiveMessage);
