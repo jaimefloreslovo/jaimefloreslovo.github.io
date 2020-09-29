@@ -19,6 +19,7 @@
   	  Plotly.newPlot( TESTER, my_data,
         {margin: { t: 0 } } );
       console.log( Plotly.BUILD );
+      window.addEventListener('message', receiveMessage);
 
   </script>
 </body>
