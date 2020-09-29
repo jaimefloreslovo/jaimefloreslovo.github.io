@@ -11,7 +11,7 @@
     function receiveMessage(event) {
       let event_data = JSON.parse(event.data)
       let chartio_data = event_data.data
-      let dataset = chartio_data.map(a => a.cases)
+      let dataset = chartio_data.map(a => a.x)
 
       console.log(event_date)
       console.log(chartio_date)
