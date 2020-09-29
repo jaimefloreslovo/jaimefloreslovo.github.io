@@ -14,11 +14,13 @@
       my_data = chartio_data.data
       x_value = my_data.map(a => a.x)
       y_value = my_data.map(a => a.y)
+      x_key = {x: x_value}
+      y_key = {y: y_value}
 
 
      newData = document.getElementById('tester');
 
-  	  Plotly.plot(newData, [x_value, y_value], {
+  	  Plotly.plot(newData, [x_key, y_key], {
     margin: { t: 0 } }
       );
       console.log( Plotly.BUILD );
