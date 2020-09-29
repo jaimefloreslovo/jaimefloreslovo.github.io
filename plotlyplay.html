@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <div id="tester" style="width:600px;height:250px;"></div>
+  <div id='tester' style="width:600px;height:250px;"></div>
 
     <script>
     function receiveMessage(event) {
@@ -19,11 +19,12 @@
 
       var dataset = {x: x_value, y: y_value,
       type: 'scatter'};
-      var layout = {title: 'My Line Chart' };
+
+      var data = [dataset]
 
      /*newData = document.getElementById('tester');*/
 
-     Plotly.newPlot(tester, dataset, layout);
+     Plotly.newPlot('tester', data);
 
   	 /* Plotly.newPlot(newData, [x_value, y_value], {
     margin: { t: 0 } }
