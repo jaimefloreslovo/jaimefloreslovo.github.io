@@ -14,7 +14,7 @@
       my_data = chartio_data.data
       x_value = my_data.map(a => a.gdpPercap)
       y_value = my_data.map(a => a.lifeExp)
-      marker_size = my_data.map(a => a.pop)
+      marker_size = my_data.map(a => a.country)
 
       var dataset = {x: x_value, y: y_value,
       mode: 'markers',
