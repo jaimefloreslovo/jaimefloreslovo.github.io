@@ -23,7 +23,9 @@
 
       var data = [dataset]
 
-     Plotly.newPlot('tester', data);
+      var layout = {showlegend: true};
+
+     Plotly.newPlot('tester', data, layout);
 
     };
     window.addEventListener('message', receiveMessage);
