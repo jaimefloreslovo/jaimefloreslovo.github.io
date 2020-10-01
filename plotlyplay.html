@@ -17,14 +17,32 @@
       x_key = {x: x_value}
       y_key = {y: y_value}
 
-      var dataset = {x: x_value, y: y_value,
-      type: 'scatter'};
+      var dataset = {x: x_value, y: y_value
+    /*  type: 'scatter'*/};
 
       var data = [dataset]
 
+      layout = {
+  xaxis: {
+    type: 'log',
+    title: {text: 'gdpPercap'},
+    anchor: 'y',
+    domain: [0.0, 1.0]
+  },
+  yaxis: {
+    title: {text: 'lifeExp'},
+    anchor: 'x',
+    domain: [0.0, 1.0]
+  },
+  legend: {
+    title: {text: 'continent'},
+    itemsizing: 'constant',
+    tracegroupgap: 0
+  }}
+
      /*newData = document.getElementById('tester');*/
 
-     Plotly.newPlot('tester', data);
+     Plotly.newPlot('tester', data, layout);
 
   	 /* Plotly.newPlot(newData, [x_value, y_value], {
     margin: { t: 0 } }
