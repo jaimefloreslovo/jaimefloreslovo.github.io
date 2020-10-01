@@ -1,0 +1,62 @@
+<!doctype html>
+‹<html>
+
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <div id='tester'></div>
+
+    <script>
+    function receiveMessage(event) {
+      chartio_data = JSON.parse(event.data)
+      my_data = chartio_data.data
+      x_value = my_data.map(a => a.gdpPercap)
+      y_value = my_data.map(a => a.lifeExp)
+      new_size = my_data.map(a => a.pop)
+      text_el = my_data.map(a => a.country)
+
+
+
+      var dataset = {x: x_value, y: y_value,
+      mode: 'markers',
+      marker: {
+        symbol: 'circle',
+    sizeref: 366300.86,
+        size: new_size,
+        sizemode: 'area'
+    },
+  /*type: 'scatter'*/
+  showlegend: true,
+  hovertext: text_el,
+  hovertemplate: '<b>%{hovertext}</b><br><br>gdpPercap=%{x}<br>'
+        };
+      var layout = {
+  xaxis: {
+    type: 'log',
+    title: {text: 'gdpPercap'},
+    anchor: 'y',
+    domain: [0.0, 1.0]
+  },
+  yaxis: {
+    title: {text: 'lifeExp'},
+    anchor: 'x',
+    domain: [0.0, 1.0]
+  },
+  legend: {
+    title: {text: 'continent'},
+    itemsizing: 'constant',
+    tracegroupgap: 0
+  } };
+
+      var data = [dataset]
+
+     Plotly.newPlot('tester', data, layout);
+
+    };
+    window.addEventListener('message', receiveMessage);
+
+  </script>
+</body>
+</html>
