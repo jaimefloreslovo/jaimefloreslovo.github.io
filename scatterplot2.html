@@ -16,10 +16,12 @@
       y_value = my_data.map(a => a.lifeExp)
       new_size = my_data.map(a => a.pop)
       text_el = my_data.map(a => a.country)
+      conts = text_el = my_data.map(a => a.continent)
 
 
 
       var dataset = {x: x_value, y: y_value,
+        name: conts,
       mode: 'markers',
       marker: {
         symbol: 'circle',
@@ -29,6 +31,7 @@
     },
   /*type: 'scatter'*/
   showlegend: true,
+  legendgroup: conts,
   hovertext: text_el,
   hovertemplate: '<b>%{hovertext}</b><br><br>gdpPercap=%{x}<br>'
         };
