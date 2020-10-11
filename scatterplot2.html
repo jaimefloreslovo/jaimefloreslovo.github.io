@@ -17,9 +17,11 @@
       new_size = my_data.map(a => a.pop)
       text_el = my_data.map(a => a.country)
       conts = my_data.map(a => a.continent)
+      const contient_labels = [];
+      contient_labels.push(conts);
 
       var dataset = {x: x_value, y: y_value,
-        name: conts,
+        name: contient_labels,
         type: 'scatter',
       mode: 'markers',
       marker: {
